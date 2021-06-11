@@ -1,0 +1,138 @@
+SELECT 
+
+	TEAM, 
+
+	OffRank,
+
+	RushingTD,
+
+	PassTouchdowns,
+
+	OffTDs,
+
+		(RushingTD + PassTouchdowns) 
+		
+			AS TotalTouchdowns,
+
+	OffYardsperGame
+
+FROM [ 2017]
+
+	Order by OffRank ASC 
+
+
+Select 
+	
+	Team,
+
+	DefRank, 
+
+	YardsAllowed,
+
+	TotalTDsAllowed,
+
+	AvgPointsperGameAllowed,
+
+	AverageSacksperGame,
+
+	FumblesRecovered,
+
+	OpponentsIntercepted
+
+FROM [ 2017]
+
+	Order by DefRank ASC;
+
+
+SELECT 
+	
+	Team, 
+	 
+	Win,
+
+	Loss,
+
+	Touchdowns,
+
+	X3rdConversions,
+
+	DefRank,
+
+	TotalTDsAllowed
+
+From [ 2017]
+
+	Order by OffRank ASC
+
+
+SELECT 
+
+	Team, 
+
+	OffRank,
+
+	DefRank
+
+FROM [ 2017]
+
+Where DefRank < 50
+
+-- Missings final team rankings
+
+
+
+SELECT
+
+	Conference, 
+
+	SUM( cast (Win AS INT)) 
+
+FROM [ 2017]
+
+Group By Conference 
+
+
+
+SELECT 
+
+	Conference,
+
+	AVG (Touchdowns) 
+	
+		AS Touchdowns
+
+FROM [ 2017]
+
+Group by Conference
+
+
+
+SELECT 
+
+	Conference,
+
+	AVG ( cast( Win AS int )) 
+	
+		AS AvgWinByConference 
+
+FROM [ 2017]
+
+
+Group by Conference
+
+
+
+SELECT 
+
+	Team, 
+
+	DefRank AS DefRank2017,
+
+	.[2018]DefRank, 
+
+	.[ 2019]DefRank,
+
+	.[2020]DefRank,
+
+	
+FROM [ 2017] 
